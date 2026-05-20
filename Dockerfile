@@ -37,6 +37,9 @@ VOLUME ["/app/king-detective/data", "/app/king-detective/keys"]
 EXPOSE 9527
 
 CMD exec java \
+    -Dfile.encoding=UTF-8 \
+    -Dstdout.encoding=UTF-8 \
+    -Dstderr.encoding=UTF-8 \
     --add-opens java.base/java.net=ALL-UNNAMED \
     --add-opens java.base/sun.net.www.protocol.https=ALL-UNNAMED \
     -jar king-detective.jar | tee -a /var/log/king-detective.log
